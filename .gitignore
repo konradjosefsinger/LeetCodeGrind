@@ -1,0 +1,17 @@
+# Ignore node_modules directory (dependencies)
+node_modules/
+
+# Ignore log files and temporary files
+npm-debug.log
+yarn-error.log
+*.log
+*.tmp
+
+# Ignore development environment (e.g., VS Code)
+.vscode/
+
+# Ignore environment-specific settings
+.env
+
+# Ignore local npm package cache
+.npm/
