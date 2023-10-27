@@ -3,7 +3,7 @@
 /**
  * @param {string} haystack
  * @param {string} needle
- * @return {numbery}
+ * @return {number}
  */
 
 const strStr = function (haystack, needle) {
@@ -18,11 +18,15 @@ const strStr = function (haystack, needle) {
 // *** *** *** *** *** //
 
 // Knuth-Morris-Pratt (KMP) algorithm
+// -> The Knuth-Morris-Pratt algorithm is a string searching algorithm that searches for occurrences of a 'word' within a main 'text string' by employing the observation that when a mismatch occurs, the word itself embodies sufficient information to determine where the next match could begin, thus bypassing re-examination of previously matched characters.
 
 const strStrV2 = function (haystack, needle) {
   if (needle === '') return 0;
   const computeLPS = (pattern) => {
     const lps = new Array(pattern.length).fill(0);
+    // The LPS array stores information about the longest proper prefix that is also a proper suffix for each position in the 'needle'
+    // A proper prefix of a string is any substring of the string that includes the first character but does not include the string itself.
+    // A proper suffix is any substring of the string that includes the last character but does not include the string itself.
     let len = 0;
     for (let i = 1; i < pattern.length; i++) {
       while (len > 0 && pattern[i] !== pattern[len]) {
